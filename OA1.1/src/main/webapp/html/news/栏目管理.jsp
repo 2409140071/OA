@@ -14,55 +14,8 @@
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <script language="javascript" src="../js/util.js"></script>
     <script>
-        function chaxun()
-        {
-            // alert("这是一个下拉菜单");
-            // console.log("onchange事件触发了该方法")
-                alert("将要发送一个ajax请求");
-                //发送异步请求
-                //1.创建核心对象
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp=new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                }
-
-                //2. 建立连接
-                /*
-                    参数：
-                        1. 请求方式：GET、POST
-                            * get方式，请求参数在URL后边拼接。send方法为空参
-                            * post方式，请求参数在send方法中定义
-                        2. 请求的URL：
-                        3. 同步或异步请求：true（异步）或 false（同步）
-
-                 */
-                xmlhttp.open("GET","${pageContext.request.contextPath}/newlabel/findnewlabel.do?page=1&size=4",false);
-
-                //3.发送请求
-                xmlhttp.send();
-
-                // //4.接受并处理来自服务器的响应结果
-                // //获取方式 ：xmlhttp.responseText
-                // //什么时候获取？当服务器响应成功后再获取
-                //
-                // //当xmlhttp对象的就绪状态改变时，触发事件onreadystatechange。
-                // xmlhttp.onreadystatechange=function()
-                // {
-                //     //判断readyState就绪状态是否为4，判断status响应状态码是否为200
-                //     if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                //     {
-                //         //获取服务器的响应结果
-                //         var responseText = xmlhttp.responseText;
-                //         alert(responseText);
-                //     }
-                // }
-
-
+        function selectSubmit(){
+            document.getElementsByName('form1')[0].submit()
         }
         function shanchu()
         {
@@ -93,7 +46,7 @@
             </table></td>
         </tr>
     </table>
-    <form name="form1" method="post" action="">
+    <form name="form1" method="post" action="${pageContext.request.contextPath}/newlabel/findnewlabelByparent.do?page=1&size=${pageInfo.pageSize}&pid=${}">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table01">
             <tr>
                 <td colspan="2" class="td_02"><SPAN class=td_title>根据栏目名称查询</SPAN></td>
@@ -101,7 +54,7 @@
             <tr>
                 <td width="14%" class="td_02">栏目名称</td>
                 <td width="86%" class="td_02">
-                    <select name="select" class="input" style="width:99% " onchange="chaxun()">
+                    <select name="select" class="input" style="width:99% " onchange="selectSubmit()">
                         <option value="0" selected >--请选择--</option>
                        <c:forEach items="${pageInfo.list}" var="parent">
                            <option value="${parent.id}" >--${parent.name}--</option>
@@ -109,16 +62,6 @@
                     </select>
                 </td>
             </tr>
-            <!--  <tr>
-               <td class="td_02">二级栏目名称</td>
-               <td class="td_02">
-                 <select name="select" class="input" style="width:99% ">
-                   <option value="1" selected>--请选择--</option>
-                   <option value="2">天下足球</option>
-                   <option value="3">我猜</option>
-                 </select>
-               </td>
-             </tr> -->
         </table>
         <br>
         <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">

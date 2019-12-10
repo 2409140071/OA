@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -27,9 +28,10 @@ public class NewLabelController {
     @RequestMapping("/findnewlabel.do")
     public String findNewLbel(HttpSession session,
                               @RequestParam(name = "page",required = true,defaultValue = "1") int page ,
-                              @RequestParam(name = "size",required = true,defaultValue = "5")int size){
+                              @RequestParam(name = "size",required = true,defaultValue = "5")int size,
+                              @RequestParam(name = "pid" ,required = true,defaultValue = "0")int pid){
 
-        List<NewLabel> newLabels = service.findNewLabel(page,size);
+        List<NewLabel> newLabels = service.findNewLabel(page,size,pid);
         PageInfo pageInfo = new PageInfo(newLabels);
         session.setAttribute("pageInfo" ,pageInfo);
         return "/html/news/栏目管理.jsp";
@@ -72,10 +74,11 @@ public class NewLabelController {
 
     //添加栏目add
     @RequestMapping("/addnewlabel.do")
+    @ResponseBody
     public String addNewlabel(NewLabel newLabel){
+        System.out.println(newLabel);
         service.addNewlabel(newLabel);
-
-        return "";
+        return "success,请关闭此页面吧";
     }
 
 }

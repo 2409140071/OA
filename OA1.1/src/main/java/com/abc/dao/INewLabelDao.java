@@ -22,7 +22,7 @@ public interface INewLabelDao {
             @Result(property="pid",column="pid"),
             @Result(property = "parent" ,column = "pid",one=@One(select="com.abc.dao.INewLabelDao.findParentByPid"))
     })
-    List<NewLabel> findNewLabel();
+    List<NewLabel> findNewLabel(int pid);
     //通过父栏目Id查询父栏目
     @Select("select * from newlabel where id=#{pid}")
 //    @Results(value = {
@@ -57,6 +57,6 @@ public interface INewLabelDao {
     void modifyNewlabel(NewLabel newLabel);
 
     //添加栏目信息
-    @Insert("insert into newlabel (label_name,label_content,pid) values(#{name},#{content},#{pid},)")
+    @Insert("insert into newlabel(label_name,label_content,pid) values(#{name},#{content},#{pid})")
     void addNewlabel(NewLabel newLabel);
 }

@@ -19,10 +19,10 @@ public class NewLabelServiceImpl implements INewLabelService {
     @Autowired
     public INewLabelDao dao;
     @Override
-    public List<NewLabel> findNewLabel(int page ,int size) {
+    public List<NewLabel> findNewLabel(int page ,int size ,int pid) {
 
         PageHelper.startPage(page,size);
-        List<NewLabel> newLabels = dao.findNewLabel();
+        List<NewLabel> newLabels = dao.findNewLabel(pid);
         return newLabels;
     }
 

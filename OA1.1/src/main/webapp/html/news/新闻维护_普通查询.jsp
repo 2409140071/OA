@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <title>个人设置</title>
-    <link href="../../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <script language="javascript" src="../../js/util.js">
     </script>
     <style type="text/css">
@@ -120,6 +121,7 @@ style="width:98.9% " > --></td>
             <td width="11%" class="td_top">审核状态</td>
             <td width="6%" class="td_top">修改</td>
         </tr>
+
         <tr>
             <td class="td07" align="center"><input type="checkbox" name="checkbox"
 
@@ -136,16 +138,27 @@ style="width:98.9% " > --></td>
                 <a href="#" onClick="javascript:windowOpen('新闻修改.htm','','',700,430,'no','yes','100','100')">修改</a>
             </td>
         </tr>
-        <tr>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-            <td class="td07">&nbsp;</td>
-        </tr>
+
+        <c:forEach var="new1" items="${news}">
+
+            <tr>
+                <td class="td07" align="center"><input type="checkbox" name="checkbox"
+
+                                                       value="checkbox"></td>
+                <td class="td07"><a href="#" onClick="javascript:windowOpen('查看新闻详细信息.htm','','',670,450,'no','yes','100','100')">${new1.title}</a></td>
+                <td class="td07">${new1.labelid}</td>
+                <td class="td07">${new1.uid}</td>
+                <td class="td07">${new1.time}</td>
+                <td class="td07"><FONT style="FONT-SIZE: 10pt" color=#000000>2008/04/10 <FONT
+
+                        style="FONT-SIZE: 10pt" color=#000000>11:23</FONT></FONT></td>
+                <td class="td07"><a href="#" onClick="javascript:windowOpen('新闻审核.htm','','',700,600,'no','yes','100','100')">未审核</a></td>
+                <td class="td07">
+                    <a href="#" onClick="javascript:windowOpen('新闻修改.htm','','',700,430,'no','yes','100','100')">修改</a>
+                </td>
+            </tr>
+        </c:forEach>
+
         <tr>
             <td class="td07">&nbsp;</td>
             <td class="td07">&nbsp;</td>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -40,27 +41,28 @@
             </table></td>
         </tr>
     </table>
-    <form name="form1" method="post" action="${pageContext.request.contextPath}/newlabel/">
+    <form name="form1" method="post" action="${pageContext.request.contextPath}/newlabel/addnewlabel.do">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table01">
             <tr>
                 <td colspan="2" class="td_02" align="center">栏目添加</td>
             </tr>
             <tr>
                 <td width="14%" class="td_02">栏目名称</td>
-                <td width="86%" class="td_02"><input name="textfield" type="text" class="input" style="width:99% "></td>
+                <td width="86%" class="td_02"><input name="name" type="text" class="input" style="width:99% "></td>
             </tr>
             <tr>
                 <td class="td_02">上级栏目名称</td>
-                <td class="td_02"><select name="select" class="input" style="width:99% ">
+                <td class="td_02"><select name="pid" class="input" style="width:99% ">
                     <option value="0" selected>--请选择--</option>
-                    <option value="1">公司新闻</option>
-                    <option value="2">体育新闻</option>
-                    <option value="3">娱乐新闻</option>
+                    <c:forEach var="newlabel" items="${pageInfo.list}">
+                        <option value="${newlabel.id}">${newlabel.name}</option>
+
+                    </c:forEach>
                 </select></td>
             </tr>
             <tr>
                 <td class="td_02">栏目描述</td>
-                <td class="td_02"><textarea name="textarea" rows="5" style="width:99% "></textarea>
+                <td class="td_02"><textarea name="content" rows="5" style="width:99% "></textarea>
                 </td>
             </tr>
         </table><br>

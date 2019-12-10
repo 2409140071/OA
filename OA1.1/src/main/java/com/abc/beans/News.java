@@ -1,12 +1,12 @@
 package com.abc.beans;
 
 public class News {
-    private Integer id;
-    private String uid;
-    private String  labelid;
-    private String title;
-    private String content;
-    private String time;
+    private Integer id;//id
+    private String uid;//用户id
+    private String  labelid;//栏目id
+    private String title;//标题
+    private String content;//描述
+    private String time;//时间
 
     public String getTime() {
         return time;

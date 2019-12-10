@@ -12,7 +12,7 @@ import java.util.List;
  **/
 public interface INewLabelService {
 
-    List<NewLabel> findNewLabel(int page,int size);
+    List<NewLabel> findNewLabel(int page,int size,int pid);
     //查询全部，为分页
 //    List<NewLabel> findNewLabel1();
 
