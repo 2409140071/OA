@@ -27,6 +27,7 @@ public class Users {
     private String httpaddress;
     private String address;
     private String content;
+    private String logontime;
     private String lastlogontime;
     private String logoncount;
 
@@ -54,6 +55,14 @@ public class Users {
                 ", lastlogontime='" + lastlogontime + '\'' +
                 ", logoncount='" + logoncount + '\'' +
                 '}';
+    }
+
+    public String getLogontime() {
+        return logontime;
+    }
+
+    public void setLogontime(String logontime) {
+        this.logontime = logontime;
     }
 
     public Integer getId() {
