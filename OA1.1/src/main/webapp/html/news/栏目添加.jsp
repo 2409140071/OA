@@ -54,18 +54,19 @@
                 <td class="td_02">上级栏目名称</td>
                 <td class="td_02"><select name="pid" class="input" style="width:99% ">
                     <option value="0" selected>--请选择--</option>
-                    <c:forEach var="newlabel" items="${pageInfo.list}">
+                    <c:forEach var="newlabel" items="${newlabels}">
                         <option value="${newlabel.id}">${newlabel.name}</option>
-
                     </c:forEach>
                 </select></td>
             </tr>
+
             <tr>
                 <td class="td_02">栏目描述</td>
                 <td class="td_02"><textarea name="content" rows="5" style="width:99% "></textarea>
                 </td>
             </tr>
         </table><br>
+        <p style="color: red" align="center" >${msg}</p>
         <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="td_page"><div align="center">

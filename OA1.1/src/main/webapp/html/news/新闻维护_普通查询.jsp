@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <title>个人设置</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
-    <script language="javascript" src="../../js/util.js">
+    <script language="javascript" src="../js/util.js">
     </script>
     <style type="text/css">
         <!--
@@ -26,16 +26,16 @@
     <tr>
         <td height="25" align="center" valign="bottom" class="td06"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="2%" valign="middle" background="../../images/bg_03.gif">&nbsp;</td>
-                <td width="2%" valign="middle" background="../../images/bg_03.gif"><img src="../../images/main_28.gif" width="9" height="9" align="absmiddle"></td>
-                <td height="30" valign="middle" background="../../images/bg_03.gif"><div align="left"><font color="#FFFFFF">新闻维护</font></div></td>
+                <td width="2%" valign="middle" background="../images/bg_03.gif">&nbsp;</td>
+                <td width="2%" valign="middle" background="../images/bg_03.gif"><img src="../images/main_28.gif" width="9" height="9" align="absmiddle"></td>
+                <td height="30" valign="middle" background="../images/bg_03.gif"><div align="left"><font color="#FFFFFF">新闻维护</font></div></td>
             </tr>
         </table></td>
     </tr>
 </table>
 <br>
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <td width="79%" class="td_page style1">--普通查询--<a href="新闻维护_按时间查询.htm" class="style1">按时间查询</a>--</td>
+    <td width="79%" class="td_page style1">--普通查询--<a href="${pageContext.request.contextPath}/html/news/新闻维护_按时间查询.jsp" class="style1">按时间查询</a>--</td>
 </table>
 <form name="form1" method="post" action="">
     <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
@@ -99,13 +99,13 @@ style="width:98.9% " > --></td>
 
            class="table01">
         <tr>
-            <td colspan="8" align="right" class="td07"><img src="../../images/1.gif" width="4"
+            <td colspan="8" align="right" class="td07"><img src="../images/1.gif" width="4"
 
-                                                            height="5" align="absmiddle"> 首页　 <img src="../../images/2.gif" width="3" height="5"
+                                                            height="5" align="absmiddle"> 首页　 <img src="../images/2.gif" width="3" height="5"
 
-                                                                                                   align="absmiddle"> 上一页　 <img src="../../images/2-2.gif" width="3" height="5"
+                                                                                                   align="absmiddle"> 上一页　 <img src="../images/2-2.gif" width="3" height="5"
 
-                                                                                                                                align="absmiddle"> 下一页　 <img src="../../images/3.gif" width="4" height="5"
+                                                                                                                                align="absmiddle"> 下一页　 <img src="../images/3.gif" width="4" height="5"
 
                                                                                                                                                              align="absmiddle"> 末页　　共 1 页 1 条记录</td>
         </tr>
@@ -133,9 +133,9 @@ style="width:98.9% " > --></td>
             <td class="td07"><FONT style="FONT-SIZE: 10pt" color=#000000>2008/04/10 <FONT
 
                     style="FONT-SIZE: 10pt" color=#000000>11:23</FONT></FONT></td>
-            <td class="td07"><a href="#" onClick="javascript:windowOpen('新闻审核.htm','','',700,600,'no','yes','100','100')">未审核</a></td>
+            <td class="td07"><a href="#" onClick="javascript:windowOpen('${pageContext.request.contextPath}/html/news/新闻审核.jsp','','',700,600,'no','yes','100','100')">未审核</a></td>
             <td class="td07">
-                <a href="#" onClick="javascript:windowOpen('新闻修改.htm','','',700,430,'no','yes','100','100')">修改</a>
+                <a href="#" onClick="javascript:windowOpen('${pageContext.request.contextPath}/html/news/新闻修改.jsp','','',700,430,'no','yes','100','100')">修改</a>
             </td>
         </tr>
 

@@ -1,3 +1,5 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -52,11 +54,11 @@
             <tr>
                 <td class="td_02">上级栏目名称</td>
                 <td class="td_02">
-                    <select name="select2" style="width:99% ">
-                        <option value="无">无</option>
-                        <option value="体育新闻" selected>体育新闻</option>
-                        <option value="娱乐新闻">娱乐新闻</option>
-                        <option value="--请选择--">--请选择--</option>
+                    <select name="pid" style="width:99% ">
+                       <option value="">--请选择--</option>
+                        <c:forEach items="${newlabels}" var="n">
+                            <option value="${n.id}" <c:if test="${n.id==newlabel.pid}">selected</c:if>>--${n.name}--</option>
+                        </c:forEach>
                     </select>
                 </td>
             </tr>
@@ -68,6 +70,7 @@
             </tr>
         </table>
         <br>
+        <p style="color:red;" align="center">${msg}</p>
         <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="td_page"><div align="center">
@@ -80,12 +83,8 @@
                 </div></td>
             </tr>
         </table>
-        <p>&nbsp;</p>
+
     </form>
-    <h3>这是名字${newlbel.name}</h3>
-    <h3>这是描述${newlbel.content}</h3>
-    <h3>这是id${newlbel.id}</h3>
-    <h3>这是pid${newlbel.pid}</h3>
 </center>
 </body>
 </html>

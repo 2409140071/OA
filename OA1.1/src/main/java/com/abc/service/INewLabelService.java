@@ -1,7 +1,6 @@
 package com.abc.service;
 
 import com.abc.beans.NewLabel;
-import com.abc.beans.News;
 
 import java.util.List;
 
@@ -13,6 +12,8 @@ import java.util.List;
 public interface INewLabelService {
 
     List<NewLabel> findNewLabel(int page,int size,int pid);
+
+    List<NewLabel> findNewLabel();
     //查询全部，为分页
 //    List<NewLabel> findNewLabel1();
 
@@ -21,7 +22,9 @@ public interface INewLabelService {
     NewLabel findNewLabelById(int id);
 
 
-    void modifyNewlabel(NewLabel newLabel);
+    int modifyNewlabel(NewLabel newLabel);
 
-    void addNewlabel(NewLabel newLabel);
+    int addNewlabel(NewLabel newLabel);
+
+    List<NewLabel> findNewLabelByPid(int page, int size, int pid);
 }

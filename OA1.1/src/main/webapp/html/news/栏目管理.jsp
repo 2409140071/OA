@@ -14,8 +14,12 @@
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <script language="javascript" src="../js/util.js"></script>
     <script>
-        function selectSubmit(){
-            document.getElementsByName('form1')[0].submit()
+
+        function chaxun() {
+            alert("这是请求，即将发送");
+            var sel=document.getElementById("select");
+            var optionVal = sel.value;
+            location.href="${pageContext.request.contextPath}/newlabel/findnewlabelByparent.do?pid="+optionVal;
         }
         function shanchu()
         {
@@ -46,7 +50,7 @@
             </table></td>
         </tr>
     </table>
-    <form name="form1" method="post" action="${pageContext.request.contextPath}/newlabel/findnewlabelByparent.do?page=1&size=${pageInfo.pageSize}&pid=${}">
+    <form name="form1" method="post" action="">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table01">
             <tr>
                 <td colspan="2" class="td_02"><SPAN class=td_title>根据栏目名称查询</SPAN></td>
@@ -54,10 +58,10 @@
             <tr>
                 <td width="14%" class="td_02">栏目名称</td>
                 <td width="86%" class="td_02">
-                    <select name="select" class="input" style="width:99% " onchange="selectSubmit()">
-                        <option value="0" selected >--请选择--</option>
-                       <c:forEach items="${pageInfo.list}" var="parent">
-                           <option value="${parent.id}" >--${parent.name}--</option>
+                    <select id="select" name="pid" class="input" style="width:99% " onchange="chaxun()">
+                        <option value="0" >--请选择--</option>
+                       <c:forEach items="${newlabels}" var="n">
+                        <option value="${n.id}" <c:if test="${n.id == pid}">selected</c:if>>--${n.name}--</option>
                        </c:forEach>
                     </select>
                 </td>

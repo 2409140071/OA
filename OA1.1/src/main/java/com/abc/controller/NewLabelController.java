@@ -4,14 +4,17 @@ import com.abc.beans.NewLabel;
 import com.abc.service.INewLabelService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpOutputMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author MZZ
@@ -30,22 +33,27 @@ public class NewLabelController {
                               @RequestParam(name = "page",required = true,defaultValue = "1") int page ,
                               @RequestParam(name = "size",required = true,defaultValue = "5")int size,
                               @RequestParam(name = "pid" ,required = true,defaultValue = "0")int pid){
-
+        //在这里还要把全部查询一下，
+        List<NewLabel> newLabels2 = service.findNewLabel();
         List<NewLabel> newLabels = service.findNewLabel(page,size,pid);
         PageInfo pageInfo = new PageInfo(newLabels);
         session.setAttribute("pageInfo" ,pageInfo);
+        session.setAttribute("newlabels" ,newLabels2);
         return "/html/news/栏目管理.jsp";
     }
 
     @RequestMapping("/findnewlabelByparent.do")
-    public String findNewLbelByparent(HttpSession session,
+    public String findNewLbelByparent(HttpServletRequest request,
                               @RequestParam(name = "page",required = true,defaultValue = "1") int page ,
-                              @RequestParam(name = "size",required = true,defaultValue = "5")int size){
+                              @RequestParam(name = "size",required = true,defaultValue = "5")int size,
+                                @RequestParam(name = "pid" ,required = true,defaultValue = "0")int pid){
 
-        List<NewLabel> newLabels = service.findNewLabel(page,size);
-
+        List<NewLabel> newLabels = service.findNewLabelByPid(page,size,pid);
+        System.out.println("这是通过父id查询方法中的");
+        System.out.println(newLabels);
         PageInfo pageInfo = new PageInfo(newLabels);
-        session.setAttribute("pageInfo" ,pageInfo);
+        request.setAttribute("pageInfo" ,pageInfo);
+        request.setAttribute("pid",pid);
         return "/html/news/栏目管理.jsp";
     }
     //通过id删除栏目
@@ -57,28 +65,33 @@ public class NewLabelController {
     }
     //通过id查询栏目
     @RequestMapping("/findnewlabelById.do")
-    public String findNewlabelById(int id,HttpSession session){
+    public String findNewlabelById(int id,HttpServletRequest request){
+
         NewLabel newLabel = service.findNewLabelById(id);
-        System.out.println(newLabel);
-        session.setAttribute("newlabel",newLabel);
+        List<NewLabel> newLabels = service.findNewLabel();
+        request.setAttribute("newlabel",newLabel);
+        request.setAttribute("newlabels",newLabels);
         return "/html/news/栏目修改.jsp";
     }
     //通过id修改栏目信息
     @RequestMapping("/modifynewlabel.do")
-    public String modifyNewlabel(NewLabel newLabel,HttpSession session){
+    public String modifyNewlabel(NewLabel newLabel, HttpSession session, HttpServletRequest request){
         PageInfo pageInfo = (PageInfo) session.getAttribute("pageInfo");
-        System.out.println("这是modifynewlabel中的"+newLabel);
-        service.modifyNewlabel(newLabel);
-        return "redirect:/newlabel/findnewlabel.do?page="+pageInfo.getPageNum()+"&size="+pageInfo.getPageSize();
+        int n = service.modifyNewlabel(newLabel);
+        String msg = (n>=0?"修改成功":"修改失败");
+        request.setAttribute("msg",msg);
+        return "forward:/html/news/栏目修改.jsp";
     }
 
     //添加栏目add
     @RequestMapping("/addnewlabel.do")
-    @ResponseBody
-    public String addNewlabel(NewLabel newLabel){
+    public String addNewlabel(NewLabel newLabel, HttpServletRequest request){
         System.out.println(newLabel);
-        service.addNewlabel(newLabel);
-        return "success,请关闭此页面吧";
+        int n = service.addNewlabel(newLabel);
+        System.out.println("n="+n);
+        String msg = (n>0?"添加成功":"添加失败");
+        request.setAttribute("msg",msg);
+        return "forward:/html/news/栏目添加.jsp";
     }
 
 }

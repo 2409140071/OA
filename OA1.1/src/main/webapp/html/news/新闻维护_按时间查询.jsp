@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <title>个人设置</title>
     <link href="../../css/style.css" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/js/laydate/laydate.js"></script>
     <script language="javascript" src="../../js/util.js">
         <SCRIPT language=JavaScript type=text/JavaScript>
             function GetDate (nText)
@@ -46,7 +47,7 @@
 </table>
 <br>
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <td width="79%" class="td_page style1">--<a href="新闻维护_普通查询.htm">普通查询</a>--按时间查询--</td>
+    <td width="79%" class="td_page style1">--<a href="${pageContext.request.contextPath}/html/news/新闻维护_普通查询.jsp">普通查询</a>--按时间查询--</td>
 </table>
 <form name="form1" method="post" action="">
     <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
@@ -59,7 +60,7 @@
 
         <tr>
             <td width="10%" align="center" class="td_02">开始时间</td>
-            <td width="40%" class="td_02"><input name="beginTime" id="beginTime" type="text" class="input" value="2008-10-10" size="15" maxlength="12" readonly="true" />
+            <td width="40%" class="td_02"><input name="beginTime" id="beginTime" type="text" class="input" placeholder="请选择" size="15" maxlength="12" readonly="true" />
                 <img src="../../images/search.gif" width="21" height="20" align="absmiddle" onclick="GetDate(1)" />
                 <select name="select" class="input2">
                     <option value="1">01</option>
@@ -95,10 +96,24 @@
                     <option value="45">45</option>
                 </select>
                 分 </td>
+            <script>
+                //执行一个laydate实例
+                laydate.render({
+                    elem: '#beginTime' //指定元素
+                    ,lang: 'en'
+                });
+            </script>
             <td width="10%" align="center" class="td_02">结束时间</td>
             <td width="40%"><span class="td_02">
-        <input name="endTime" id="endTime" type="text" class="input" value="2008-10-10" size="15" maxlength="12" readonly="true" />
-        <img src="../../images/search.gif" width="21" height="20" align="absmiddle" onclick="GetDate(2)" />
+        <input name="endTime" id="endTime" type="text" class="input" placeholder="请选择" size="15" maxlength="12" readonly="true" />
+            <script>
+                //执行一个laydate实例
+                laydate.render({
+                    elem: '#endTime' //指定元素
+                    ,lang: 'en'
+                });
+            </script>
+                <img src="../../images/search.gif" width="21" height="20" align="absmiddle" onclick="GetDate(2)" />
         <select name="select2" class="input2">
           <option value="1">01</option>
           <option value="2">02</option>

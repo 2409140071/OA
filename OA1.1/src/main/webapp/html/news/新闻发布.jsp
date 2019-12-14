@@ -49,24 +49,23 @@
                 </td>
                 <td width="13%" class="td_02"></td>
                 <td width="37%" class="td_02">
-                    <!-- <input name="textfield" type="text" class="input" style="width:99% " value="技术部" readonly="true"> -->
                 </td>
             </tr>
             <tr>
+                <c:forEach items="${newlabels}" var="n">
+                   id=${n.id}",name=${n.name}:
+                </c:forEach>
                 <td class="td_02">栏目名称</td>
                 <td class="td_02">
                     <select name="labelid" style="width:99% ">
                         <option value="1" selected>--请选择--</option>
-                        <option value="2">体育新闻</option>
-                        <option value="3">娱乐新闻</option>
+                        <c:forEach items="${newlabels}" var="n">
+                            <option value="${n.id}">--${n.name}--</option>
+                        </c:forEach>
                     </select>
                 </td>
                 <td class="td_02"></td>
-                <td class="td_02"><!-- <select name="select2" class="input" style="width:99% ">
-          <option value="1" selected>--请选择--</option>
-          <option value="2">天下足球</option>
-          <option value="3">我猜</option>
-        </select> --></td>
+                <td class="td_02"></td>
             </tr>
             <tr>
                 <td class="td_02">新闻标题</td>
@@ -74,12 +73,7 @@
                     <input name="title" type="text" class="input" style="width:99% " >
                 </td>
             </tr>
-            <!-- <tr>
-              <td width="13%" class="td_02">关键词</td>
-              <td colspan="3" class="td_02">
-                <input name="textfield" type="text" class="input" style="width:99% " >
-             </td>
-            </tr> -->
+
             <tr>
                 <td class="td_02">新闻内容</td>
                 <td colspan="3" class="td_02">

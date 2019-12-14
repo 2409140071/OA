@@ -177,7 +177,7 @@
                                                     <td width="19"><img src="../images/tree_06.gif" width="19" height="20"></td>
                                                     <td width="19"><img src="../images/tree_07.gif" width="19" height="20"></td>
                                                     <td width="19"><img src="../images/tree_14.gif" width="19" height="20"></td>
-                                                    <td nowrap><a href="${pageContext.request.contextPath}/html/news/新闻发布.jsp" target="mainFrame" class="a03">新闻发布</a></td>
+                                                    <td nowrap><a href="${pageContext.request.contextPath}/news/findNewlabels.do" target="mainFrame" class="a03">新闻发布</a></td>
                                                 </tr>
                                             </table>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -205,7 +205,7 @@
                                                     <td width="19"><img src="../images/tree_06.gif" width="19" height="20"></td>
                                                     <td width="19"><img src="../images/tree_07.gif" width="19" height="20"></td>
                                                     <td width="19"><img src="../images/tree_14.gif" width="19" height="20"></td>
-                                                    <td nowrap><a href="meeting/会议室管理.htm" target="mainFrame" class="a03">会议室管理</a></td>
+                                                    <td nowrap><a href="${pageContext.request.contextPath}/meet/findmeet.do" target="mainFrame" class="a03">会议室管理</a></td>
                                                 </tr>
                                             </table>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -381,7 +381,7 @@
                                                         <img src="../images/tree_14.gif" width="19" height="20">
                                                     </td>
                                                     <td nowrap>
-                                                        <a href="person_manage/员工添加.htm" target="mainFrame" class="a03">添加用户</a>
+                                                        <a href="person_manage/员工添加.jsp" target="mainFrame" class="a03">添加用户</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -401,7 +401,7 @@
                                                         <img src="../images/tree_14.gif" width="19" height="20">
                                                     </td>
                                                     <td nowrap>
-                                                        <a href="person_manage/所有员工.htm" target="mainFrame" class="a03">用户管理</a>
+                                                        <a href="${pageContext.request.contextPath0}/users/findAll.do" target="mainFrame" class="a03">用户管理</a>
                                                     </td>
                                                 </tr>
                                             </table>

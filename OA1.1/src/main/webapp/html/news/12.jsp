@@ -58,7 +58,7 @@ images/main_28.gif" width="9" height="9" align="absmiddle"></td>
                     <select onchange="selectSubmit()" name="select" class="input" style="width:99% ">
                         <option value="0" selected>--请选择--</option>
                         <c:forEach var="newslabel" items="${byPid}">
-                                <option value="${newslabel.id}" <c:if test='${newslabel.id == pid}'>selected='selected'</c:if> >${newslabel.labelName}</option>
+                                <option value="${newslabel.id}" <c:if test="${newslabel.id == pid}">selected</c:if> >${newslabel.labelName}</option>
                         </c:forEach>
                     </select>
                 </td>

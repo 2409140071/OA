@@ -25,11 +25,30 @@ public class NewsController {
 
     @Autowired
     public INewsService service;
+    @Autowired
+    public INewLabelService labelService ;
     @RequestMapping("/addnews.do")
     public String addNews(News news){
         service.addNews(news);
         return "/html/news/新闻发布.jsp";
     }
+
+    //查找全部栏目
+    @RequestMapping("/findNewlabels.do")
+    public String fineNewLables(HttpSession session){
+
+        System.out.println("通过了这个方法");
+        List<NewLabel> newLabels = labelService.findNewLabel();
+        if (newLabels.isEmpty()){
+            System.out.println("这是一个空的");
+        }
+        session.setAttribute("newlabels",newLabels);
+        newLabels.forEach(System.out::println);
+        return "/html/news/新闻发布.jsp";
+
+    }
+
+
     @RequestMapping("/findnews.do")
     public String findNews(HttpServletRequest request){
         List<News> news =  service.findNews();
@@ -45,48 +64,5 @@ public class NewsController {
         request.setAttribute("news",news);
         return "/html/news/新闻维护_普通查询.jsp";
     }
-//    @RequestMapping("/findnewlabel.do")
-//    public String findNewLbel(HttpSession session,
-//                              @RequestParam(name = "page",required = true,defaultValue = "1") int page ,
-//                              @RequestParam(name = "size",required = true,defaultValue = "5")int size){
-//
-//        List<NewLabel> newLabels = service.findNewLabel(page,size);
-//        PageInfo pageInfo = new PageInfo(newLabels);
-//        System.out.println(pageInfo);
-//        for (NewLabel newLabel :newLabels){
-//            System.out.println(newLabel);
-//        }
-//        session.setAttribute("pageInfo" ,pageInfo);
-//        return "/html/news/栏目管理.jsp";
-//    }
-//
-//    @RequestMapping("/findnewlabelByparent.do")
-//    public String findNewLbelByparent(HttpSession session,
-//                                      @RequestParam(name = "page",required = true,defaultValue = "1") int page ,
-//                                      @RequestParam(name = "size",required = true,defaultValue = "5")int size){
-//
-//        List<NewLabel> newLabels = service.findNewLabel(page,size);
-//        PageInfo pageInfo = new PageInfo(newLabels);
-//        System.out.println(pageInfo);
-//        for (NewLabel newLabel :newLabels){
-//            System.out.println(newLabel);
-//        }
-//        session.setAttribute("pageInfo" ,pageInfo);
-//        return "/html/news/栏目管理.jsp";
-//    }
-//    //通过id删除栏目
-//    @RequestMapping("/deletenewlabel.do")
-//    public String deleteNewlabel(int id){
-//        service.deleteNewlabel(id);
-//        return "/html/news/栏目管理.jsp";
-//    }
-//    //通过id查询栏目
-//    @RequestMapping("/findnewlabelById.do")
-//    public String findNewlabelById(int id){
-//        NewLabel newLabel = service.findNewLabelById(id);
-//
-//
-//        return "";
-//    }
 
 }

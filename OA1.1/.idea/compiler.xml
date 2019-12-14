@@ -9,5 +9,6 @@
         <module name="OA1.1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
