@@ -3,6 +3,7 @@ package com.abc.dao;
 import com.abc.beans.Users;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Date 2019/12/14/0014 16:45
  * @Version 1.0
  **/
+@Repository
 public interface IUsersDao {
 
     @Select("select * from users")
