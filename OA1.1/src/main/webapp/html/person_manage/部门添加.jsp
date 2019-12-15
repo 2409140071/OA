@@ -42,7 +42,8 @@
             </table></td>
         </tr>
     </table>
-    <form name="form1" method="post" action="${pageContext.request.contextPath}/department/adduser.do">
+    <form name="form1" method="post" action="${pageContext.request.contextPath}/department/addDepartment.do">
+        <p style="color: red">${msg}</p>
         <table width="95%" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td width="15%" height="30" class="td_form01"> 部门名称</td>

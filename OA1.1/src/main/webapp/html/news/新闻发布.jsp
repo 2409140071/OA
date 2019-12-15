@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,9 +53,6 @@
                 </td>
             </tr>
             <tr>
-                <c:forEach items="${newlabels}" var="n">
-                   id=${n.id}",name=${n.name}:
-                </c:forEach>
                 <td class="td_02">栏目名称</td>
                 <td class="td_02">
                     <select name="labelid" style="width:99% ">
@@ -91,7 +89,7 @@
                     &nbsp;&nbsp; </div></td>
             </tr>
         </table>
-        <p>&nbsp;    </p>
+        <p style="color: red">${msg}</p>
     </form>
 </center>
 </body>

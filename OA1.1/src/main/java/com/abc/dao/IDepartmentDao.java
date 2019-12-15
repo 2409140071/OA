@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface IDepartmentDao {
     @Select("select * from department")
-    List<Users> findAll();
+    List<Department> findAll();
     @Insert("insert into department(depname,pid, email,phone,content)" +
             " values(#{depname},#{pid},#{email},#{phone},#{content})")
     int addDepartment(Department department);

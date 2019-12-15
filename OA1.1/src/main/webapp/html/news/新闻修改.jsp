@@ -45,7 +45,7 @@
             <tr>
                 <td class="td_02">姓名</td>
                 <td width="37%" class="td_02">
-                    <input name="textfield" type="text" class="input" style="width:99% " value="张三" readonly="true">
+                    <input name="uid" type="text" class="input" style="width:99% " value="1" readonly="true">
                 </td>
                 <td width="13%" class="td_02"></td>
                 <td width="37%" class="td_02">
@@ -55,7 +55,7 @@
             <tr>
                 <td class="td_02">栏目名称</td>
                 <td class="td_02">
-                    <select name="select" style="width:99% ">
+                    <select name="labelid" style="width:99% ">
                         <option value="1" selected>--请选择--</option>
                         <option value="2">体育新闻</option>
                         <option value="3">娱乐新闻</option>
@@ -71,7 +71,7 @@
             <tr>
                 <td class="td_02">新闻标题</td>
                 <td colspan="3" class="td_02">
-                    <input name="textfield" type="text" class="input" style="width:99% " >
+                    <input name="title" type="text" class="input" style="width:99% " >
                 </td>
             </tr>
             <!-- <tr>
@@ -83,11 +83,12 @@
             <tr>
                 <td class="td_02">新闻内容</td>
                 <td colspan="3" class="td_02">
-                    <textarea name="textarea" style="width:99% " rows="10">bbbbbbbbbbbbbbbbbbbbbb</textarea>
+                    <textarea name="content" style="width:99% " rows="10">bbbbbbbbbbbbbbbbbbbbbb</textarea>
                 </td>
             </tr>
         </table>
         <br>
+        <p style="color:red;">${msg}</p>
         <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="td_page">

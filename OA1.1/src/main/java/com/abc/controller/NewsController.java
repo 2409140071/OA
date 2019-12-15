@@ -28,8 +28,10 @@ public class NewsController {
     @Autowired
     public INewLabelService labelService ;
     @RequestMapping("/addnews.do")
-    public String addNews(News news){
-        service.addNews(news);
+    public String addNews(News news,HttpServletRequest request){
+        int n = service.addNews(news);
+        String msg = (n>0?"发布成功":"发布失败");
+        request.setAttribute("msg",msg);
         return "/html/news/新闻发布.jsp";
     }
 
@@ -44,7 +46,7 @@ public class NewsController {
         }
         session.setAttribute("newlabels",newLabels);
         newLabels.forEach(System.out::println);
-        return "/html/news/新闻发布.jsp";
+        return "forward:/html/news/新闻发布.jsp";
 
     }
 
@@ -64,5 +66,20 @@ public class NewsController {
         request.setAttribute("news",news);
         return "/html/news/新闻维护_普通查询.jsp";
     }
+
+    @RequestMapping("/findnewsById.do")
+    public String findNewsById(HttpServletRequest request,int id){
+       News news = service.findNewsById(id);
+        request.setAttribute("news",news);
+        return "forward:/html/news/新闻修改.jsp";
+    }
+    @RequestMapping("/modifynews.do")
+    public String modifyNews(HttpServletRequest request,News news){
+        int n = service.modifyNews(news);
+        String msg = (n>0?"修改成功":"修改失败");
+        request.setAttribute("msg",msg);
+        return "forward:/html/news/新闻修改.jsp";
+    }
+
 
 }

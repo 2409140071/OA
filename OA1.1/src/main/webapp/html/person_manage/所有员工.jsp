@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>部门管理</title>
-    <link href="../../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="css/style_.css" rel="stylesheet" type="text/css">
 
     <script>
@@ -103,6 +104,18 @@
                 <td width="13%" class="td_top">办公电话</td>
                 <td width="13%" class="td_top">修改员工</td>
             </tr>
+            <c:forEach var="n" items="${pageInfo.list}">
+                <tr>
+                    <td class="td_02"><input type="checkbox" name="checkbox" value="checkbox"></td>
+                    <td class="td_02"><font color="#000000"><a href="&#21592;&#24037;&#31649;&#29702;.htm">${n.username}</a></font></td>
+                    <td class="td_02">${n.depid}</td>
+                    <td class="td_02">${n.duty}</td>
+                    <td class="td_02">${n.birthday}</td>
+                    <td class="td_02">${n.mobile}</td>
+                    <td class="td_02">${n.workphone}</td>
+                    <td class="td_02"><a href="${pageContext.request.contextPath}/users/findUserById.do?id=${n.id}">修 改</a></td>
+                </tr>
+            </c:forEach>
             <tr>
                 <td class="td_02"><input type="checkbox" name="checkbox" value="checkbox"></td>
                 <td class="td_02"><font color="#000000"><a href="&#21592;&#24037;&#31649;&#29702;.htm">张三</a></font></td>

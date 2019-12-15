@@ -10,7 +10,7 @@ import java.util.List;
 public interface INewsDao {
 
     @Insert("insert into newmanage(uid,labelid,title,content,time) value(#{uid},#{labelid},#{title},#{content},#{time})")
-    void addNews(News news);
+    int addNews(News news);
 
     @Select("select * from newmanage")
     @Results(id = "newMap", value = {
@@ -23,5 +23,8 @@ public interface INewsDao {
     })
     List<News> findNews();
 
-
+    @Select("select * from newmanage where id=#{id}")
+    News findNewsById(int id);
+    @Update("update newmanage set uid=#{uid},labelid=#{labelid},title=#{title},content=#{content},time=#{time} where id=#{id}")
+    int modifyNews(News news);
 }

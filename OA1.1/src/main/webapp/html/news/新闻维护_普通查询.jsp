@@ -154,7 +154,7 @@ style="width:98.9% " > --></td>
                         style="FONT-SIZE: 10pt" color=#000000>11:23</FONT></FONT></td>
                 <td class="td07"><a href="#" onClick="javascript:windowOpen('新闻审核.htm','','',700,600,'no','yes','100','100')">未审核</a></td>
                 <td class="td07">
-                    <a href="#" onClick="javascript:windowOpen('新闻修改.htm','','',700,430,'no','yes','100','100')">修改</a>
+                    <a href="#" onClick="javascript:windowOpen('${pageContext.request.contextPath}/news/findnewsById.do?id=${new1.id}','','',700,430,'no','yes','100','100')">修改</a>
                 </td>
             </tr>
         </c:forEach>

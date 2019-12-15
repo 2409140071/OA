@@ -14,13 +14,24 @@ public class NewsServiceImpl implements INewsService {
     @Autowired
     private INewsDao dao;
     @Override
-    public void addNews(News news) {
-        dao.addNews(news);
+    public int addNews(News news) {
+
+        return  dao.addNews(news);
     }
 
     @Override
     public List<News> findNews() {
 
         return dao.findNews();
+    }
+
+    @Override
+    public News findNewsById(int id) {
+        return dao.findNewsById(id);
+    }
+
+    @Override
+    public int modifyNews(News news) {
+        return dao.modifyNews(news);
     }
 }

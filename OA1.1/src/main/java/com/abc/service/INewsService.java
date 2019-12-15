@@ -5,7 +5,11 @@ import com.abc.beans.News;
 import java.util.List;
 
 public interface INewsService {
-    void addNews(News news);
+    int addNews(News news);
 
     List<News> findNews();
+
+    News findNewsById(int id);
+
+    int modifyNews(News news);
 }

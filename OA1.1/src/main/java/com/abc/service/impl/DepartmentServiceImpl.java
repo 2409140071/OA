@@ -1,7 +1,6 @@
 package com.abc.service.impl;
 
 import com.abc.beans.Department;
-import com.abc.beans.Users;
 import com.abc.dao.IDepartmentDao;
 import com.abc.service.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
     @Autowired
     private IDepartmentDao dao;
     @Override
-    public List<Users> findAll(int page, int size) {
+    public List<Department> findAll(int page, int size) {
         return dao.findAll();
     }
 
